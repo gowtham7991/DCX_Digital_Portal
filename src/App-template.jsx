@@ -5,6 +5,7 @@ import Navbar from "./page-layout-elements/navbar"; //module for the side naviga
 import "./page-layout-elements/pagelayout.css"; //css file for the page layout
 import VerticalTimeline from "./special-components/verticaltimeline";
 import Widgets from "./UI-components/widgets";
+import Table from "./UI-components/table";
 import ExcelReader from "./special-components/excelToJSON/excel-json-converter";
 // import "bootstrap/dist/css/bootstrap.css";  //install bootstrap and uncomment to start using bootstrap
 
@@ -26,33 +27,7 @@ class PageTemplate extends Component {
       navdetails: Data.templatepage.navdetails.URL, //set the details for the navigation bar from the JSON
       pagetitle: Data.templatepage.pagetitle, //set the page title
       isHidden: true,
-      widgetdata: [
-        {
-          category: "input",
-          type: "text",
-          label: "Please select a text :",
-          name: "input1",
-          id: 1,
-          placeholder: "enter text",
-        },
-        {
-          category: "select",
-          type: "select",
-          label: "Please select a number :",
-          name: "select1",
-          id: 1,
-          options: [1, 2, 3],
-        },
-        {
-          category: "select",
-          type: "select",
-          label: "Please select a number :",
-          name: "select2",
-          id: 2,
-          options: ["a", "b"],
-        },
-        { category: "button", type: "Submit" },
-      ],
+      widgetdata: Data.templatepage.widgetdata,
       //set the state if any additional component is imported and pass the data to the child component
     };
   }
@@ -78,15 +53,6 @@ class PageTemplate extends Component {
     }
 
     //make the api call to get the details about the logged in user - Authorization
-
-    /* var AuthorizationURL = "";
-    fetch(AuthorizationURL, {
-      method: "",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: "",
-    }); */
   }
 
   //handles modal form close button -- updates parent state
@@ -117,8 +83,9 @@ class PageTemplate extends Component {
           </div>
           <div className="activearea">
             <div className="data">
-              {/* your code goes here..*/}
               <h7>your code goes here...</h7>
+
+              {/* <Widgets widgetdata={this.state.widgetdata} /> */}
             </div>
           </div>
         </div>

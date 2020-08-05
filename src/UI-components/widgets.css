@@ -1,26 +1,21 @@
 .widgets {
   border-radius: 5px;
-
   width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 10px;
+  background-color: white;
 }
 
 .widgets .widget {
   width: 33.33%;
-  padding: 5px 15px;
+  padding: 15px 15px;
 }
 
-.widgets .widget_2col {
+.widgets .fieldset {
   width: 50%;
-  padding: 10px 30px;
-}
-
-.widgets .widget_3col {
-  width: 33.33%;
-  padding: 10px 30px;
+  padding: 15px 15px;
 }
 
 .widgets .textarea {
@@ -28,7 +23,10 @@
   padding: 5px 15px;
   margin-right: 200px;
 }
-
+.widgets .dynamic-inputs {
+  width: 100%;
+  padding: 5px 15px;
+}
 .widgets .checkbox {
   width: 100%;
   padding: 10px 30px;
@@ -36,16 +34,6 @@
 
 .widgets .checkbox label {
   display: inline-block;
-}
-
-.widgets .checkbox input[type="checkbox"] {
-  padding: 12px 20px;
-  margin: 8px 0px;
-  margin-left: 5px;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
 }
 
 .widgets .dropzone {
@@ -62,19 +50,34 @@
   margin: 30px;
 }
 
-label {
+.widget label {
   margin-bottom: 0px;
   margin-left: 5px;
   display: block;
   font-size: 18px;
   box-sizing: border-box;
+  padding: 2px;
 }
-
-legend {
+.textarea label {
+  margin-bottom: 0px;
+  margin-left: 5px;
+  display: block;
+  font-size: 18px;
+  box-sizing: border-box;
+  padding: 2px;
+}
+.dynamic-inputs label {
+  margin-bottom: 0px;
+  display: block;
+  font-size: 18px;
+  box-sizing: border-box;
+  padding: 2px;
+}
+.widget legend {
   font-size: 18px;
 }
 
-select {
+.widget select {
   margin: 8px 0px;
   margin-left: 5px;
   display: block;
@@ -85,10 +88,49 @@ select {
   height: 40px;
 }
 
-input[type="text"] {
-  padding: 12px 20px;
+.widget .multi-select {
   margin: 8px 0px;
   margin-left: 5px;
+  display: block;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 85%;
+  height: 40px;
+}
+
+.widget .download-link {
+  margin: 8px 0px;
+  margin-left: 5px;
+  display: block;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 85%;
+  height: 40px;
+}
+.widget .upload-container {
+  margin: 8px 0px;
+  margin-left: 5px;
+  display: block;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 85%;
+  height: 40px;
+}
+.widget .multi-select input[type="checkbox"] {
+  display: inline-block;
+}
+
+.widget .multi-select span {
+  font-size: 14px;
+}
+
+.widget .multi-select label {
+  padding: "2px";
+}
+
+.widget input[type="text"] {
+  padding: 12px 20px;
+
   display: block;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -99,26 +141,42 @@ input[type="text"] {
 
 label#field {
   display: inline-block;
-  width: 50px;
+  width: 40px;
+  font-size: 14px;
 }
 
-input[type="text"]#field {
-  padding: 12px 20px;
-  margin: 8px 0px;
-  margin-left: 5px;
+label#date {
+  margin-top: -7px;
+  margin-bottom: 6px;
+}
+
+.fieldset input[type="text"] {
   height: 30px;
   border: none;
   border-bottom: 1px solid #ccc;
   border-radius: 0px;
   display: inline-block;
-  width: 67%;
+  width: 77%;
+  margin-left: "30px";
 }
 
-select:hover {
+.widget select:hover {
+  box-shadow: 0px 0px 7px #ccc;
+}
+
+.widget .multi-select:hover {
   box-shadow: 0px 0px 7px #ccc;
 }
 
 input[type="text"].error {
+  border: 1px solid red;
+}
+
+input[type="date"].error {
+  border: 1px solid red;
+}
+
+textarea.error {
   border: 1px solid red;
 }
 
@@ -134,10 +192,9 @@ input:hover {
   box-shadow: 0px 0px 7px #ccc;
 }
 
-input[type="number"] {
+.widget input[type="number"] {
   padding: 12px 20px;
   margin: 8px 0px;
-  margin-left: 5px;
   display: block;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -146,20 +203,19 @@ input[type="number"] {
   height: 40px;
 }
 
-input[type="date"]::-webkit-inner-spin-button {
+.widget input[type="date"]::-webkit-inner-spin-button {
   display: none;
 }
 
-[type="date"]::-webkit-calendar-picker-indicator {
+.widget input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
 
-input[type="date"] {
-  background: #fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 50% no-repeat;
-
-  background-color: #fff;
+.widget input[type="date"] {
+  background: #fff
+    url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
+    97% 50% no-repeat;
   padding: 3px 3px;
-
   margin-left: 5px;
   display: block;
   border: 1px solid #ccc;
@@ -169,7 +225,17 @@ input[type="date"] {
   height: 40px;
 }
 
-input[type="checkbox"] {
+.widgets .checkbox input[type="checkbox"] {
+  padding: 12px 20px;
+  margin: 8px 0px;
+  margin-left: 5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.widget input[type="checkbox"] {
   padding: 12px 20px;
   margin: 8px 0px;
   margin-left: 5px;
@@ -183,18 +249,26 @@ textarea:hover {
   box-shadow: 0px 0px 7px #ccc;
 }
 
-textarea {
-  padding: 12px 30px;
-  margin: 8px 0px;
-  margin-left: 5px;
+.widget textarea {
+  padding: 5px 10px;
   display: block;
+  margin-top: 6px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
   width: 85%;
   height: 40px;
 }
-
+.textarea textarea {
+  padding: 5px 10px;
+  display: block;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 85%;
+  height: 75px;
+}
 input[type="submit"]:hover {
   background-color: #45a049;
 }
