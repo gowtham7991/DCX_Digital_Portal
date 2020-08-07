@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App-template";
+import FAQPage from "./faqpage";
 import * as serviceWorker from "./serviceWorker";
 import VerticalTimeline from "./special-components/verticaltimeline";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <FAQPage />
   </React.StrictMode>,
   document.getElementById("root")
 );
